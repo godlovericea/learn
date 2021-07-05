@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Parent Page</h1>
+
+    <div>
+        <button onclick="sendMessageToSon()">父页面按钮</button>
+    </div>
+    
+    <iframe id="myIframe" src="http://127.0.0.1:5500/postMessage/son.html" frameborder="0"></iframe>
+
+    <script>
+        // 接受来自子页面的数据
+        window.addEventListener("message", (data)=>{
+            console.log(data)
+        }, false)
+
+        // 点击父页面按钮，发送数据到子页面
+        function sendMessageToSon() {
+            let data = "我是父页面的数据"
+            let iframe = document.getElementById("myIframe")
+            iframe.contentWindow.postMessage(data, "*")
+        }
+
+        // 定时发送消息
+        function intervalSendMessageToSon(){
+            setTimeout(()=>{
+                let iframe = document.getElementById("myIframe")
+                iframe.contentWindow.postMessage("定时发送消息", "*")
+            }, 2000)
+        }
+        intervalSendMessageToSon()
+    </script>
+</body>
+</html>

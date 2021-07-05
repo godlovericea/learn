@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [{
+                "Number": 3,
+                "ProductCode": null,
+                "ProductName": "罐式叠压供水设备",
+                "ProductPrice": 0,
+                "ProductTypes": "二供设备"
+            },
+            {
+                "Number": 3,
+                "ProductCode": null,
+                "ProductName": "箱式叠压给水设备",
+                "ProductPrice": 0,
+                "ProductTypes": "二供设备"
+            },
+            {
+                "Number": 3,
+                "ProductCode": null,
+                "ProductName": "高效成套供水设备",
+                "ProductPrice": 3,
+                "ProductTypes": "二供设备"
+            },
+            {
+                "Number": 3,
+                "ProductCode": null,
+                "ProductName": "智慧集成泵站",
+                "ProductPrice": 3,
+                "ProductTypes": "集成设备"
+            },
+            {
+                "Number": 3,
+                "ProductCode": null,
+                "ProductName": "智慧调峰泵站",
+                "ProductPrice": 2,
+                "ProductTypes": "集成设备"
+            },
+            {
+                "Number": 3,
+                "ProductCode": null,
+                "ProductName": "预制泵站",
+                "ProductPrice": 2,
+                "ProductTypes": "排水设备"
+            },
+            {
+                "Number": 1,
+                "ProductCode": null,
+                "ProductName": "消防泵",
+                "ProductPrice": 1,
+                "ProductTypes": "消防设备"
+            },
+            {
+                "Number": 4,
+                "ProductCode": null,
+                "ProductName": "双吸泵",
+                "ProductPrice": 0,
+                "ProductTypes": "常规设备"
+            },
+            {
+                "Number": 3,
+                "ProductCode": null,
+                "ProductName": "单级泵",
+                "ProductPrice": 8,
+                "ProductTypes": "常规设备"
+            },
+            {
+                "Number": 5,
+                "ProductCode": null,
+                "ProductName": "集成净水设备",
+                "ProductPrice": 0,
+                "ProductTypes": "农饮水"
+            },
+            {
+                "Number": 0,
+                "ProductCode": null,
+                "ProductName": "排水平台",
+                "ProductPrice": 4,
+                "ProductTypes": "智慧水务"
+            }
+        ]
+        var newArr = [...new Set(arr.map(i => i.ProductTypes))]; // 去重的时候需要注意和普通数组不同
+        var list = [];
+        newArr.forEach(i => {
+            list.push(arr.filter(t => t.ProductTypes === i));
+        })
+        var mlist = [];
+        list.forEach((i, index) => {
+            const obj = {
+                ProductType: newArr[index],
+                Productes: []
+            }
+            i.forEach((el)=>{
+                obj.Productes.push({
+                    ProductNames: el.ProductName,
+                    Number: el.Number,
+                    Price: el.ProductPrice
+                })
+            })
+            mlist.push(obj)
+        })
+        console.log(mlist);
+    </script>
+</body>
+</html>

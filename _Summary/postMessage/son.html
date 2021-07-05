@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>SON Page</h1>
+    <button onclick="sendMessageToParent()">子页面按钮</button>
+    <script>
+        // 接受来自父页面的数据
+        window.addEventListener("message", (data)=>{
+            console.log(data, "son")
+        })
+
+        // 点击子页面的按钮发送数据到父页面（注意加 parent）
+        function sendMessageToParent() {
+            let data = "我是son页面的数据"
+            window.parent.postMessage(data, "*")
+        }
+    </script>
+</body>
+</html>
