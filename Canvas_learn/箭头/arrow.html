@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./index.js"></script>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="1000" height="1000"></canvas>
+    <script>
+        function showArrow() {
+            const myCanvas = document.getElementById("myCanvas");
+            const ctx = myCanvas.getContext("2d");
+            drawArrow(ctx, 10, 100, 100, 50, 30, 30, 5, '#f36');
+        }
+        showArrow()
+    </script>
+</body>
+
+</html>
