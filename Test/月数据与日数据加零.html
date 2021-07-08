@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let dataType = 0
+        let xAxis = []
+        let valueArr = []
+        var arr = [{
+                "events": [{
+                        "num": 22,
+                        "type": "用水问题"
+                    },
+                    {
+                        "num": 22,
+                        "type": "阀门问题"
+                    },
+                    {
+                        "num": 16,
+                        "type": "漏水抢修"
+                    },
+                    {
+                        "num": 8,
+                        "type": "水表问题"
+                    }
+                ],
+                "time": "2021-04"
+            },
+            {
+                "events": [{
+                        "num": 29,
+                        "type": "用水问题"
+                    },
+                    {
+                        "num": 10,
+                        "type": "阀门问题"
+                    },
+                    {
+                        "num": 16,
+                        "type": "漏水抢修"
+                    },
+                    {
+                        "num": 3,
+                        "type": "水表问题"
+                    }
+                ],
+                "time": "2021-05"
+            },
+            {
+                "events": [{
+                        "num": 19,
+                        "type": "用水问题"
+                    },
+                    {
+                        "num": 8,
+                        "type": "阀门问题"
+                    },
+                    {
+                        "num": 24,
+                        "type": "漏水抢修"
+                    },
+                    {
+                        "num": 1,
+                        "type": "水表问题"
+                    }
+                ],
+                "time": "2021-06"
+            },
+            {
+                "events": [{
+                        "num": 7,
+                        "type": "阀门问题"
+                    },
+                    {
+                        "num": 3,
+                        "type": "漏水抢修"
+                    },
+                    {
+                        "num": 1,
+                        "type": "水表问题"
+                    },
+                    {
+                        "num": 4,
+                        "type": "用水问题"
+                    }
+                ],
+                "time": "2021-07"
+            }
+        ]
+
+        var arr1 = [{
+                "events": [{
+                        "num": 2,
+                        "type": "阀门问题"
+                    },
+                    {
+                        "num": 1,
+                        "type": "漏水抢修"
+                    }
+                ],
+                "time": "2021-07-01"
+            },
+            {
+                "events": [{
+                    "num": 2,
+                    "type": "漏水抢修"
+                }],
+                "time": "2021-07-02"
+            },
+            {
+                "events": [{
+                    "num": 3,
+                    "type": "阀门问题"
+                }],
+                "time": "2021-07-03"
+            },
+            {
+                "events": [{
+                        "num": 2,
+                        "type": "阀门问题"
+                    },
+                    {
+                        "num": 1,
+                        "type": "水表问题"
+                    }
+                ],
+                "time": "2021-07-04"
+            },
+            {
+                "events": [{
+                    "num": 2,
+                    "type": "用水问题"
+                }],
+                "time": "2021-07-06"
+            },
+            {
+                "events": [{
+                    "num": 2,
+                    "type": "用水问题"
+                }],
+                "time": "2021-07-07"
+            }
+        ]
+        const date = new Date()
+        const year = date.getFullYear()
+        let month = date.getMonth() + 1 // 获取当前月份
+        let day = date.getDate() // 获取当前日期
+        
+        const correctArr =  generatorArr(day, "month")
+
+
+        correctArr.forEach(item => {
+            arr1.forEach(cItem => {
+                if (item.time === cItem.time) {
+                    item.events = cItem.events
+                }
+            })
+        })
+
+        console.log(correctArr)
+
+        function generatorArr(num, type) {
+            const myDate = new Date()
+            const year = myDate.getFullYear()
+            let month = myDate.getMonth() + 1 // 获取当前月份
+            let arr = []
+            let str = ""
+            if (month < 10) {
+                month = `0${month}`
+            }
+            for (let i = 1; i <= num; i++) {
+                if (i < 10) {
+                    i = `0${i}`
+                }
+                
+                if (type === "year") {
+                    str = `${year}-${i}`
+                } else {
+                    str = `${year}-${month}-${i}`
+                }
+                
+                arr.push({
+                    "events": [{
+                            "num": 0,
+                            "type": "阀门问题"
+                        },
+                        {
+                            "num": 0,
+                            "type": "漏水抢修"
+                        },
+                        {
+                            "num": 0,
+                            "type": "水表问题"
+                        },
+                        {
+                            "num": 0,
+                            "type": "用水问题"
+                        }
+                    ],
+                    "time": str
+                })
+            }
+            return arr
+        }
+    </script>
+</body>
+
+</html>
