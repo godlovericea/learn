@@ -6,18 +6,89 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./jquery.js"></script>
     <script src="./index.js"></script>
 </head>
 
 <body>
-    <canvas id="myCanvas" width="1000" height="1000"></canvas>
+    <canvas id="myCanvas" width="1000" height="200"></canvas>
+    <div class="init-img-container">
+        <img src="./images/User2.png" alt="" class="userImg">
+    </div>
+    
     <script>
-        function showArrow() {
-            const myCanvas = document.getElementById("myCanvas");
-            const ctx = myCanvas.getContext("2d");
-            drawArrow(ctx, 10, 100, 100, 50, 30, 30, 5, '#f36');
-        }
-        showArrow()
+        const myCanvas = document.getElementById("myCanvas");
+        const ctx = myCanvas.getContext("2d");
+        const arr = [
+            {
+                id: 1,
+                nodes:[{
+                    nid: "sid-01",
+                    name: '发起节点',
+                    msg: '请快速办理',
+                }],
+                nodeCount: 1
+            },
+            {
+                id: 2,
+                nodes: [{
+                    nid: "sid-02",
+                    name: '在办节点一',
+                    msg: '请快速办理，我好着急啊，MMP',
+                }],
+                nodeCount: 1
+            },
+            {
+                id: 3,
+                nodes:[{
+                    nid: "sid-03",
+                    name: '会签节点一',
+                    msg: '请快速办理，我好着急啊，MMP',
+                },{
+                    nid: "sid-04",
+                    name: '会签节点二',
+                    msg: '请快速办理，我好着急啊，MMP',
+                }],
+                nodeCount: 2
+            },
+            {
+                id: 4,
+                nodes: [{
+                    nid: "sid-05",
+                    name: '总经理审批',
+                    msg: '请快速办理，我好着急啊，MMP',
+                }],
+                nodeCount: 1
+            }
+        ]
+        let startPos = 0
+        arr.forEach((item, index)=>{
+            startPos +=1;
+            if (item.nodeCount === 1) {
+                drawArrow(ctx, 50 * (index + 1 + startPos), 100, 50 * (index + 2 + startPos), 100, 30, 15, 3, '#f36');
+                var htmlFragment = `
+                    <div class="img-container" style="left:${100 * (index + 1) + 50}px">
+                        <img src="./images/User2.png" alt="" class="userImg">
+                    </div>
+                `
+            } else if (item.nodeCount === 2){
+                drawArrow(ctx, 50 * (index + 1 + startPos), 100, 50 * (index + 2 + startPos), 50, 30, 15, 3, '#f36');
+                drawArrow(ctx, 50 * (index + 1 + startPos), 100, 50 * (index + 2 + startPos), 150, 30, 15, 3, '#f36');
+                var htmlFragment = `
+                    <div class="img-container" style="left:${100 * (index + 1) + 50}px;top:0">
+                        <img src="./images/User2.png" alt="" class="userImg">
+                    </div>
+                    <div class="img-container" style="left:${100 * (index + 1) + 50}px;top:100px">
+                        <img src="./images/User2.png" alt="" class="userImg">
+                    </div>
+                `
+            } else {
+
+            }
+            
+            $("body").append(htmlFragment)
+        })
     </script>
 </body>
 

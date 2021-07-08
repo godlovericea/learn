@@ -34,5 +34,4 @@ function drawArrow(ctx, fromX, fromY, toX, toY, theta, headlen, width, color) {
     ctx.lineWidth = width;
     ctx.stroke();
     ctx.restore();
-
 }
