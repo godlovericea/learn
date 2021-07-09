@@ -28,65 +28,74 @@
                     name: '发起节点',
                     msg: '请快速办理',
                 }],
-                nodeCount: 1
+                nodeCount: 1,
+                xStart: 50,
+                xTo: 150
             },
             {
                 id: 2,
                 nodes: [{
                     nid: "sid-02",
                     name: '在办节点一',
-                    msg: '请快速办理，我好着急啊，MMP',
+                    msg: '我好着急啊MMP',
                 }],
-                nodeCount: 1
+                nodeCount: 1,
+                xStart: 200,
+                xTo: 300
             },
             {
                 id: 3,
                 nodes:[{
                     nid: "sid-03",
                     name: '会签节点一',
-                    msg: '请快速办理，我好着急啊，MMP',
+                    msg: '我好着急啊MMP',
                 },{
                     nid: "sid-04",
                     name: '会签节点二',
-                    msg: '请快速办理，我好着急啊，MMP',
+                    msg: '我好着急啊MMP',
                 }],
-                nodeCount: 2
+                nodeCount: 2,
+                xStart: 350,
+                xTo: 450
             },
             {
                 id: 4,
                 nodes: [{
                     nid: "sid-05",
                     name: '总经理审批',
-                    msg: '请快速办理，我好着急啊，MMP',
+                    msg: '我好着急啊MMP',
                 }],
-                nodeCount: 1
+                nodeCount: 1,
+                xStart: 500,
+                xTo: 600
             }
         ]
-        let startPos = 0
         arr.forEach((item, index)=>{
-            startPos +=1;
+            
             if (item.nodeCount === 1) {
-                drawArrow(ctx, 50 * (index + 1 + startPos), 100, 50 * (index + 2 + startPos), 100, 30, 15, 3, '#f36');
+                drawArrow(ctx, item.xStart, 100, item.xTo, 100, 30, 15, 3, '#f36');
+                writeText(ctx, item.xStart, 110, 0, item.nodes[0].msg)
                 var htmlFragment = `
-                    <div class="img-container" style="left:${100 * (index + 1) + 50}px">
+                    <div class="img-container" style="left:${item.xTo}px">
                         <img src="./images/User2.png" alt="" class="userImg">
                     </div>
                 `
             } else if (item.nodeCount === 2){
-                drawArrow(ctx, 50 * (index + 1 + startPos), 100, 50 * (index + 2 + startPos), 50, 30, 15, 3, '#f36');
-                drawArrow(ctx, 50 * (index + 1 + startPos), 100, 50 * (index + 2 + startPos), 150, 30, 15, 3, '#f36');
+                drawArrow(ctx, item.xStart, 100, item.xTo, 50, 30, 15, 3, '#f36');
+                drawArrow(ctx, item.xStart, 100, item.xTo, 150, 30, 15, 3, '#f36');
+                // writeText(ctx, item.xStart, 50, 0.2, item.nodes[0].msg)
+                // writeText(ctx, item.xStart, 150, -0.2, item.nodes[1].msg)
                 var htmlFragment = `
-                    <div class="img-container" style="left:${100 * (index + 1) + 50}px;top:0">
+                    <div class="img-container" style="left:${item.xTo}px;top:0">
                         <img src="./images/User2.png" alt="" class="userImg">
                     </div>
-                    <div class="img-container" style="left:${100 * (index + 1) + 50}px;top:100px">
+                    <div class="img-container" style="left:${item.xTo}px;top:100px">
                         <img src="./images/User2.png" alt="" class="userImg">
                     </div>
                 `
             } else {
 
             }
-            
             $("body").append(htmlFragment)
         })
     </script>

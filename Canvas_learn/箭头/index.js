@@ -1,4 +1,4 @@
-function drawArrow(ctx, fromX, fromY, toX, toY, theta, headlen, width, color) {
+function drawArrow(ctx, fromX, fromY, toX, toY, theta, headlen, width, color, msgs) {
 
     theta = typeof (theta) != 'undefined' ? theta : 30;
     headlen = typeof (theta) != 'undefined' ? headlen : 10;
@@ -34,4 +34,14 @@ function drawArrow(ctx, fromX, fromY, toX, toY, theta, headlen, width, color) {
     ctx.lineWidth = width;
     ctx.stroke();
     ctx.restore();
+}
+
+function writeText(cans, fromX, fromY, rad, msgs) {
+    cans.font = 'bold 12px arial';
+    cans.textAlign = 'left';
+    cans.textBaseline = 'top';
+    // cans.strokeStyle = '#DF5326';
+    cans.rotate(rad);
+    cans.fillStyle = 'red';
+    cans.fillText(msgs, fromX, fromY);
 }
