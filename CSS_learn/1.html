@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 单行文本超出显示省略号 */
+        .box1{
+            width: 200px;
+            overflow: hidden;
+        }
+        .box1-p{ 
+            width:200rpx;
+            overflow: hidden;
+            text-overflow:ellipsis;
+            white-space: nowrap;
+        }
+        /* 多行文本超出显示省略号 */
+        .box2{
+            width: 200px;
+        }
+        .box2-p{
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+        }
+        /* 换行 */
+        .box3{
+            width: 200px;
+        }
+        /* X-offset:指阴影居于字体水平偏移的位置。
+        Y-offset:指阴影居于字体垂直偏移的位置。
+        Blur:指阴影的模糊值。
+        color:指阴影的颜色； */
+        .box3-p{
+            text-shadow: 5px 5px 5px #FF0000;
+        }
+        /* 设置placeholder的字体样式 */
+        .box4-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: red;
+            font-size: 16px;
+        }
+        .box4-input::-moz-placeholder { /* Firefox 19+ */
+            color: red;
+        }
+        .box4-input:-ms-input-placeholder { /* IE 10+ */
+            color: red;
+        }
+        .box4-input:-moz-placeholder { /* Firefox 18- */
+            color: red;
+        }
+        .box5{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            overflow-y: auto;
+        }
+        .box5-innerbox{
+            height: 300px;
+            background-color: aquamarine;
+        }
+        .box5::-webkit-scrollbar{
+            /*滚动条整体样式*/
+            width : 10px;  /*高宽分别对应横竖滚动条的尺寸*/
+            height: 1px;
+        }
+        .box5::-webkit-scrollbar-thumb {
+        /*滚动条里面小方块*/
+            border-radius   : 10px;
+            background-color: skyblue;
+            background-image: -webkit-linear-gradient(
+                45deg,
+                rgba(255, 255, 255, 0.2) 25%,
+                transparent 25%,
+                transparent 50%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.2) 75%,
+                transparent 75%,
+                transparent
+            );
+        }
+        .box5::-webkit-scrollbar-track {
+            /*滚动条里面轨道*/
+            box-shadow   : inset 0 0 5px rgba(0, 0, 0, 0.2);
+            background   : #ededed;
+            border-radius: 10px;
+        }
+        .box6{
+            width: 200px;
+            height: 200px;
+            background-color: blueviolet;
+            overflow-y: auto;
+        }
+        .box6::-webkit-scrollbar {
+            display: none; /* Chrome Safari */
+        }
+
+        .box6 {
+            scrollbar-width: none; /* firefox */
+            -ms-overflow-style: none; /* IE 10+ */
+            overflow-x: hidden;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box1">
+            <p class="box1-p">上面是发生内存泄漏的根本原因，直接原因则是，当不同生命周期的两个东西相互通信时，一方生命到期该回收了，却被另一方还持有时，也就发生内存泄漏了
+            </p>
+        </div>
+        <div class="box2">
+            <p class="box2-p">上面是发生内存泄漏的根本原因，直接原因则是，当不同生命周期的两个东西相互通信时，一方生命到期该回收了，却被另一方还持有时，也就发生内存泄漏了
+            </p>
+        </div>
+        <div class="box3">
+            <h1 class="box3-p">今日头条
+            </h1>
+        </div>
+        <div class="box4">
+            <input type="text" class="box4-input" placeholder="请输入地址">
+        </div>
+        <div class="box5">
+            <div class="box5-innerbox">
+            
+            </div>
+        </div>
+        <div class="box6">
+            <div class="box6-innerbox">
+                上面是发生内存泄漏的根本原因，直接原因则是，当不同生命周期的两个东西相互通信时，一方生命到期该回收了，却被另一方还持有时，也就发生内存泄漏了
+                上面是发生内存泄漏的根本原因，直接原因则是，当不同生命周期的两个东西相互通信时，一方生命到期该回收了，却被另一方还持有时，也就发生内存泄漏了
+                上面是发生内存泄漏的根本原因，直接原因则是，当不同生命周期的两个东西相互通信时，一方生命到期该回收了，却被另一方还持有时，也就发生内存泄漏了
+            </div>
+        </div>
+    </div>
+</body>
+</html>
