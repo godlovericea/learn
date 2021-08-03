@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const dataObj = {
+            "elements": [{
+                    "completed": true,
+                    "current": false,
+                    "id": "startEvent1",
+                    "name": null,
+                    "x": 100,
+                    "y": 163,
+                    "width": 30,
+                    "height": 30,
+                    "type": "StartEvent",
+                    "properties": []
+                },
+                {
+                    "completed": true,
+                    "current": false,
+                    "id": "sid-FBF72118-82BB-4E76-96CD-2412174D9B5A",
+                    "name": "节点一",
+                    "x": 175,
+                    "y": 138,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "${initiator}"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": true,
+                    "id": "sid-24C40488-750C-4E1B-ADC2-AB0D235B84C8",
+                    "name": "节点二",
+                    "x": 320,
+                    "y": 138,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "${initiator}"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-638726AE-A734-4CC8-B986-25EEFF1609C6",
+                    "name": null,
+                    "x": 465,
+                    "y": 158,
+                    "width": 40,
+                    "height": 40,
+                    "type": "ExclusiveGateway"
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-D804FB54-9F34-4977-8082-390269935275",
+                    "name": "合同项目",
+                    "x": 550,
+                    "y": 330,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "wangwanli"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-2ED45D0D-5095-48D5-8739-16B296FD5213",
+                    "name": "售前项目",
+                    "x": 550,
+                    "y": 30,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "zhengyue"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-C2D48172-D617-4F39-A8FB-AAAE16E940A1",
+                    "name": null,
+                    "x": 695,
+                    "y": 356,
+                    "width": 28,
+                    "height": 28,
+                    "type": "EndEvent",
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-85E47E95-3467-4517-AB85-99506DE8DFA0",
+                    "name": null,
+                    "x": 695,
+                    "y": 56,
+                    "width": 28,
+                    "height": 28,
+                    "type": "EndEvent",
+                    "properties": []
+                }
+            ]
+        }
+        let list = [{
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "2021/8/3 17:36:05",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/8/3 17:36:04",
+                "State": "提交",
+                "TaskID": "38e89bcd-f43e-11eb-bfc2-00ff4611b785",
+                "TaskName": "节点一"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "2021/8/3 17:36:23",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/8/3 17:36:05",
+                "State": "提交",
+                "TaskID": "39678fd4-f43e-11eb-bfc2-00ff4611b785",
+                "TaskName": "节点二"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "",
+                "GoBackReason": "",
+                "OperationMan": "zhengyue",
+                "STime": "2021/8/3 17:36:24",
+                "State": "进行中",
+                "TaskID": "44b208e2-f43e-11eb-bfc2-00ff4611b785",
+                "TaskName": "售前项目"
+            }
+        ]
+        /**
+         * 1，判断是否存在并行网关，type为ParallelGateway，截取ParallelGateway之间的节点，根据个数设置为并行节点个数
+         * 2，
+         * 
+         */
+        let firstNodeName = list[0].TaskName
+        // 查找末尾节点
+        let lastNodeName = list[list.length - 1].TaskName
+        // 查找首位节点索引
+        let firstNodeIndex = 0
+        // 查找末尾节点索引
+        let lastNodeIndex = 0
+        dataObj.elements.forEach((item, index)=>{
+            if (item.name === firstNodeName) {
+                firstNodeIndex = index
+            }
+            if (item.name === lastNodeName) {
+                lastNodeIndex = index
+            }
+        })
+        // 截取所需数组
+        let temArr = dataObj.elements.slice(firstNodeIndex, lastNodeIndex + 1)
+        console.log(temArr, "temArr")
+        let temNodeArr = []
+        temArr.forEach((item)=>{
+            list.forEach((cItem)=>{
+                // 如果不是并行网关
+                if (item.name === cItem.TaskName || item.type === "ExclusiveGateway") {
+                    temNodeArr.push(item)
+                } else if (item.type === "ParallelGateway") {
+                    // 如果是并行网关
+                }
+            })
+        })
+        console.log(temNodeArr, "temNodeArr")
+        var result = [];
+        var obj = {};
+        for (var i = 0; i < temNodeArr.length; i++) {
+            if (!obj[temNodeArr[i].id]) {
+                result.push(temNodeArr[i]);
+                obj[temNodeArr[i].id] = true;
+            }
+        }
+        console.log(result)
+        let currentNodes = []
+        result.forEach((item, index)=>{
+            let assignee = ""
+            if (item.properties) {
+                assignee = item.properties[0].value.indexOf("initiator") > -1 ? "王万里" : item.properties[0].value
+            } else {
+                assignee = ""
+            }
+            const itemObj = {
+                resourceId: item.id,
+                name: item.name || "排他网关",
+                msg: "请快速办理",
+                assignee  
+            }
+            currentNodes.push({
+                nodes: [itemObj],
+                nodeCount: 1,
+                xStart: 50 + 150 * (index-1),
+                xTo: 150 + 150 * (index-1),
+                type: item.type
+            })
+        })
+        console.log(currentNodes)
+    </script>
+</body>
+
+</html>

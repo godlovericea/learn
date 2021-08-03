@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const obj = {
+            "elements": [{
+                    "completed": true,
+                    "current": false,
+                    "id": "startEvent1",
+                    "name": null,
+                    "x": 100,
+                    "y": 163,
+                    "width": 30,
+                    "height": 30,
+                    "type": "StartEvent",
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": true,
+                    "id": "sid-1A6AB312-F4CE-4188-B476-CFA492D957BD",
+                    "name": "发起节点",
+                    "x": 175,
+                    "y": 138,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "${initiator}"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-39D3500A-C994-4563-B378-23373381B460",
+                    "name": "审批节点",
+                    "x": 320,
+                    "y": 138,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "${initiator}"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-E50704B3-F2CD-4941-BA43-FCDD9CA45700",
+                    "name": null,
+                    "x": 465,
+                    "y": 158,
+                    "width": 40,
+                    "height": 40,
+                    "type": "ParallelGateway"
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-731E771F-00B4-4AEC-A7C9-DFCB2175D2B2",
+                    "name": "会签节点一",
+                    "x": 540,
+                    "y": 30,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "zhengyue"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-CBD04F9E-C0DB-49C1-9BEA-2422E322A56D",
+                    "name": "会签节点二",
+                    "x": 555,
+                    "y": 240,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "wangwanli"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-9692FF57-493D-4F8A-A714-30590124F63B",
+                    "name": null,
+                    "x": 705,
+                    "y": 158,
+                    "width": 40,
+                    "height": 40,
+                    "type": "ParallelGateway"
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-8CDB7490-A866-43F0-9718-082448485F20",
+                    "name": "上级审批",
+                    "x": 790,
+                    "y": 138,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "${initiator}"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-9282BCF8-7DE8-4340-BAB5-3F3CA550AC60",
+                    "name": null,
+                    "x": 935,
+                    "y": 164,
+                    "width": 28,
+                    "height": 28,
+                    "type": "EndEvent",
+                    "properties": []
+                }
+            ],
+            "flows": [{
+                    "completed": true,
+                    "current": false,
+                    "id": "sid-F0C2BF11-FA1B-4FE2-9577-84BE607751DF",
+                    "type": "sequenceFlow",
+                    "sourceRef": "startEvent1",
+                    "targetRef": "sid-1A6AB312-F4CE-4188-B476-CFA492D957BD",
+                    "name": null,
+                    "waypoints": [{
+                            "x": 129,
+                            "y": 178
+                        },
+                        {
+                            "x": 174,
+                            "y": 178
+                        }
+                    ],
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-128E8E86-49AD-4319-9E9C-0EA8126F134D",
+                    "type": "sequenceFlow",
+                    "sourceRef": "sid-1A6AB312-F4CE-4188-B476-CFA492D957BD",
+                    "targetRef": "sid-39D3500A-C994-4563-B378-23373381B460",
+                    "name": null,
+                    "waypoints": [{
+                            "x": 274,
+                            "y": 178
+                        },
+                        {
+                            "x": 319,
+                            "y": 178
+                        }
+                    ],
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-588C992A-AEFB-4C70-9440-7E887530EDF4",
+                    "type": "sequenceFlow",
+                    "sourceRef": "sid-39D3500A-C994-4563-B378-23373381B460",
+                    "targetRef": "sid-E50704B3-F2CD-4941-BA43-FCDD9CA45700",
+                    "name": null,
+                    "waypoints": [{
+                            "x": 419,
+                            "y": 178
+                        },
+                        {
+                            "x": 465,
+                            "y": 178
+                        }
+                    ],
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-64D1F0A0-FE32-4E70-B05F-94CCFCEA2E71",
+                    "type": "sequenceFlow",
+                    "sourceRef": "sid-E50704B3-F2CD-4941-BA43-FCDD9CA45700",
+                    "targetRef": "sid-731E771F-00B4-4AEC-A7C9-DFCB2175D2B2",
+                    "name": null,
+                    "waypoints": [{
+                            "x": 485,
+                            "y": 158
+                        },
+                        {
+                            "x": 485,
+                            "y": 70
+                        },
+                        {
+                            "x": 540,
+                            "y": 70
+                        }
+                    ],
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-BC1939C5-48EA-4BBD-AB40-0C63E61AF63A",
+                    "type": "sequenceFlow",
+                    "sourceRef": "sid-E50704B3-F2CD-4941-BA43-FCDD9CA45700",
+                    "targetRef": "sid-CBD04F9E-C0DB-49C1-9BEA-2422E322A56D",
+                    "name": null,
+                    "waypoints": [{
+                            "x": 485,
+                            "y": 197
+                        },
+                        {
+                            "x": 485,
+                            "y": 280
+                        },
+                        {
+                            "x": 554,
+                            "y": 280
+                        }
+                    ],
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-B95D0209-CFBF-4696-B892-7C9E993F25AA",
+                    "type": "sequenceFlow",
+                    "sourceRef": "sid-731E771F-00B4-4AEC-A7C9-DFCB2175D2B2",
+                    "targetRef": "sid-9692FF57-493D-4F8A-A714-30590124F63B",
+                    "name": null,
+                    "waypoints": [{
+                            "x": 639,
+                            "y": 109
+                        },
+                        {
+                            "x": 713,
+                            "y": 169
+                        }
+                    ],
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-60708B01-CB49-4911-A909-BB61132A9B80",
+                    "type": "sequenceFlow",
+                    "sourceRef": "sid-CBD04F9E-C0DB-49C1-9BEA-2422E322A56D",
+                    "targetRef": "sid-9692FF57-493D-4F8A-A714-30590124F63B",
+                    "name": null,
+                    "waypoints": [{
+                            "x": 652,
+                            "y": 240
+                        },
+                        {
+                            "x": 714,
+                            "y": 187
+                        }
+                    ],
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-5B0DA5DA-D9C7-41CD-AFAC-99BE06F95BDE",
+                    "type": "sequenceFlow",
+                    "sourceRef": "sid-9692FF57-493D-4F8A-A714-30590124F63B",
+                    "targetRef": "sid-8CDB7490-A866-43F0-9718-082448485F20",
+                    "name": null,
+                    "waypoints": [{
+                            "x": 744,
+                            "y": 178
+                        },
+                        {
+                            "x": 789,
+                            "y": 178
+                        }
+                    ],
+                    "properties": []
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-0D0A1F91-D0F2-4FAC-9506-450C6FE6C42A",
+                    "type": "sequenceFlow",
+                    "sourceRef": "sid-8CDB7490-A866-43F0-9718-082448485F20",
+                    "targetRef": "sid-9282BCF8-7DE8-4340-BAB5-3F3CA550AC60",
+                    "name": null,
+                    "waypoints": [{
+                            "x": 889,
+                            "y": 178
+                        },
+                        {
+                            "x": 935,
+                            "y": 178
+                        }
+                    ],
+                    "properties": []
+                }
+            ],
+            "collapsed": [],
+            "diagramBeginX": 115,
+            "diagramBeginY": 30,
+            "diagramWidth": 963,
+            "diagramHeight": 320,
+            "completedActivities": [
+                "sid-F0C2BF11-FA1B-4FE2-9577-84BE607751DF",
+                "startEvent1"
+            ],
+            "currentActivities": [
+                "sid-1A6AB312-F4CE-4188-B476-CFA492D957BD"
+            ],
+            "completedSequenceFlows": [
+                "sid-F0C2BF11-FA1B-4FE2-9577-84BE607751DF"
+            ]
+        }
+        let processArr = [{
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "2021/7/30 14:24:20",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/7/30 14:24:19",
+                "State": "提交",
+                "TaskID": "c5f5785e-f0fe-11eb-89f7-00ff4611b785",
+                "TaskName": "发起节点"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/7/30 14:24:20",
+                "State": "进行中",
+                "TaskID": "c6800525-f0fe-11eb-89f7-00ff4611b785",
+                "TaskName": "审批节点"
+            }
+        ]
+        function MercatorWeblonLat(mercator) {
+            var x = mercator.split(',')[0],
+                y = mercator.split(',')[1];
+            var lng = x / 20037508.34 * 180;
+            var lat = y / 20037508.34 * 180;
+            lat = 180 / Math.PI * (2 * Math.atan(Math.exp(lat * Math.PI / 180)) - Math.PI / 2);
+            console.log(Math.PI)
+            return {
+                lng: lng,
+                lat: lat
+            };
+        }
+        let pos1 = MercatorWeblonLat("39894.1284152102,35593.9172043384")
+        let pos2 = MercatorWeblonLat("39971.636,35351.499")
+        console.log(pos1, "pos1")
+        console.log(pos2, "pos2")
+
+        function getDistance(lat1, lng1, lat2, lng2) {
+            var radLat1 = lat1 * Math.PI / 180.0
+            var radLat2 = lat2 * Math.PI / 180.0
+            var a = radLat1 - radLat2
+            var b = lng1 * Math.PI / 180.0 - lng2 * Math.PI / 180.0
+            var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)))
+            s = s * 6378.137// EARTH_RADIUS;
+            s = Math.round(s * 10000) / 10000
+            return s
+        }
+        let ss= getDistance(39894.1284152102,35593.9172043384,39971.636,35351.499)
+        console.log(ss)
+
+        // 经纬度转换成三角函数中度分表形式。
+        function rad(d) {
+            return d * Math.PI / 180.0; 
+        }
+
+
+        // 根据经纬度计算距离，参数分别为第一点的纬度，经度；第二点的纬度，经度
+        function getDistance(lat1, lng1, lat2, lng2) {
+
+            var radLat1 = rad(lat1);
+            var radLat2 = rad(lat2);
+            var a = radLat1 - radLat2;
+            var b = rad(lng1) - rad(lng2);
+            var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) +
+                Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
+            s = s * 6378.137; // EARTH_RADIUS;
+            s = Math.round(s * 10000) / 10000; //输出为公里
+
+            var distance = s;
+            var distance_str = "";
+
+            if (parseInt(distance) >= 1) {
+                distance_str = distance.toFixed(1) + "km";
+            } else {
+                distance_str = distance * 1000 + "m";
+            }
+
+            //s=s.toFixed(4);
+
+            console.info('lyj 距离是', s);
+            console.info('lyj 距离是', distance_str);
+            return s;
+        }
+        let sssss= getDistance(114.388581,30.442275,114.393666,30.445456)
+        console.log(sssss)
+
+    </script>
+</body>
+
+</html>
