@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [{
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "2021/8/3 17:31:35",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/8/3 17:31:35",
+                "State": "提交",
+                "TaskID": "986e7449-f43d-11eb-bfc2-00ff4611b785",
+                "TaskName": "节点一"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "Change activity to sid-FBF72118-82BB-4E76-96CD-2412174D9B5A",
+                "ETime": "2021/8/4 10:29:35",
+                "GoBackReason": "2",
+                "OperationMan": "wangwanli",
+                "STime": "2021/8/3 17:31:36",
+                "State": "提交",
+                "TaskID": "98e949a0-f43d-11eb-bfc2-00ff4611b785",
+                "TaskName": "节点二"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/8/4 10:29:35",
+                "State": "进行中",
+                "TaskID": "cf45d216-f4cb-11eb-a737-b42e99579bfb",
+                "TaskName": "节点一"
+            }
+        ]
+        arr.forEach((item)=>{
+            let eTime = 0
+            let mis = ""
+            const sTime = new Date(item.STime).getTime()
+            if (item.ETime) {
+                eTime = new Date(item.ETime).getTime()
+                mis = parseInt((eTime - sTime) / 1000 / 60)
+            } else {
+                mis = "办理中"
+            }
+            
+            item.mis = mis
+        })
+        console.log(arr)
+    </script>
+</body>
+
+</html>

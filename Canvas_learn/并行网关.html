@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const dataObj = {
+            "elements": [{
+                    "completed": true,
+                    "current": false,
+                    "id": "startEvent1",
+                    "name": null,
+                    "x": 100,
+                    "y": 163,
+                    "width": 30,
+                    "height": 30,
+                    "type": "StartEvent",
+                    "properties": []
+                },
+                {
+                    "completed": true,
+                    "current": false,
+                    "id": "sid-1A6AB312-F4CE-4188-B476-CFA492D957BD",
+                    "name": "发起节点",
+                    "x": 175,
+                    "y": 138,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "${initiator}"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": true,
+                    "current": false,
+                    "id": "sid-39D3500A-C994-4563-B378-23373381B460",
+                    "name": "审批节点",
+                    "x": 320,
+                    "y": 138,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "${initiator}"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": true,
+                    "current": false,
+                    "id": "sid-E50704B3-F2CD-4941-BA43-FCDD9CA45700",
+                    "name": null,
+                    "x": 465,
+                    "y": 158,
+                    "width": 40,
+                    "height": 40,
+                    "type": "ParallelGateway"
+                },
+                {
+                    "completed": false,
+                    "current": true,
+                    "id": "sid-731E771F-00B4-4AEC-A7C9-DFCB2175D2B2",
+                    "name": "会签节点一",
+                    "x": 540,
+                    "y": 30,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "zhengyue"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": true,
+                    "id": "sid-CBD04F9E-C0DB-49C1-9BEA-2422E322A56D",
+                    "name": "会签节点二",
+                    "x": 555,
+                    "y": 240,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "wangwanli"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-9692FF57-493D-4F8A-A714-30590124F63B",
+                    "name": null,
+                    "x": 705,
+                    "y": 158,
+                    "width": 40,
+                    "height": 40,
+                    "type": "ParallelGateway"
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-8CDB7490-A866-43F0-9718-082448485F20",
+                    "name": "上级审批",
+                    "x": 790,
+                    "y": 138,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [{
+                            "name": "Assignee",
+                            "value": "${initiator}"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": false,
+                    "id": "sid-9282BCF8-7DE8-4340-BAB5-3F3CA550AC60",
+                    "name": null,
+                    "x": 935,
+                    "y": 164,
+                    "width": 28,
+                    "height": 28,
+                    "type": "EndEvent",
+                    "properties": []
+                }
+            ]
+        }
+        let list = [{
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "2021/8/4 9:30:36",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/8/4 9:30:34",
+                "State": "提交",
+                "TaskID": "90a75f52-f4c3-11eb-bb9f-00ff4611b785",
+                "TaskName": "发起节点"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "2021/8/4 9:45:05",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/8/4 9:30:36",
+                "State": "提交",
+                "TaskID": "917de939-f4c3-11eb-bb9f-00ff4611b785",
+                "TaskName": "审批节点"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "2021/8/4 11:17:58",
+                "GoBackReason": "",
+                "OperationMan": "zhengyue",
+                "STime": "2021/8/4 9:45:05",
+                "State": "提交",
+                "TaskID": "97b55549-f4c5-11eb-bb9f-00ff4611b785",
+                "TaskName": "会签节点一"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "2021/8/4 11:18:57",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/8/4 9:45:05",
+                "State": "提交",
+                "TaskID": "97b5554d-f4c5-11eb-bb9f-00ff4611b785",
+                "TaskName": "会签节点二"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "",
+                "GoBackReason": "",
+                "OperationMan": "wangwanli",
+                "STime": "2021/8/4 11:18:57",
+                "State": "进行中",
+                "TaskID": "b4aabdf7-f4d2-11eb-bb9f-00ff4611b785",
+                "TaskName": "上级审批"
+            }
+        ]
+        /**
+         * 1，判断是否存在并行网关，type为ParallelGateway，截取ParallelGateway之间的节点，根据个数设置为并行节点个数
+         * 2，
+         * 
+         */
+        let firstNodeName = list[0].TaskName
+        // 查找末尾节点
+        let lastNodeName = list[list.length - 1].TaskName
+        // 查找首位节点索引
+        let firstNodeIndex = 0
+        // 查找末尾节点索引
+        let lastNodeIndex = 0
+        dataObj.elements.forEach((item, index) => {
+            if (item.name === firstNodeName) {
+                firstNodeIndex = index
+            }
+            if (item.name === lastNodeName) {
+                lastNodeIndex = index
+            }
+        })
+        // 截取所需数组
+        let temArr = dataObj.elements.slice(firstNodeIndex, lastNodeIndex + 1)
+
+        // 处理会签节点
+        let paraArr = []
+        let typesArr = []
+        dataObj.elements.forEach((item, index) => {
+            if (item.type === "ParallelGateway") {
+                typesArr.push(index)
+            }
+        })
+        paraArr = dataObj.elements.slice(typesArr[0] + 1, typesArr[1])
+        console.log(paraArr, "paraArr")
+
+        let currentNodes = []
+        temArr.forEach((item, index) => {
+            let nodesArr = []
+            let assignee = ""
+            let nodeName = item.name
+            if (item.properties) {
+                assignee = item.properties[0].value.indexOf("initiator") > -1 ? "王万里" : item.properties[0].value
+            }
+            // 并行网关
+            if (item.type === "ParallelGateway") {
+                nodeName = "并行网关"
+                nodesArr.push({
+                    resourceId: item.id,
+                    name: nodeName,
+                    msg: "请快速办理",
+                    assignee
+                })
+            } else if (item.type === "ExclusiveGateway") {
+                // 排他网关
+                nodeName = "排他网关"
+                paraArr.forEach((pItem) => {
+                    nodesArr.push({
+                        resourceId: pItem.id,
+                        name: pItem.name,
+                        msg: "请快速办理",
+                        assignee: pItem.properties[0].value.indexOf("initiator") > -1 ? "王万里" :
+                            pItem.properties[0].value
+                    })
+                })
+            } else {
+                // 普通任务
+                nodesArr.push({
+                    type: item.type,
+                    resourceId: item.id,
+                    name: nodeName,
+                    msg: "请快速办理",
+                    assignee
+                })
+            }
+            currentNodes.push({
+                nodes: nodesArr,
+                nodeCount: nodesArr.length,
+                type: item.type
+            })
+        })
+        console.log(currentNodes, "currentNodes")
+        let curParaArr = []
+        currentNodes.forEach((item, index) => {
+            if (item.type === "ParallelGateway") {
+                curParaArr.push(index)
+            }
+        })
+        let prevCurArr = []
+        let lastCurArr = []
+        let paraIngArr = []
+        let needArr = []
+        let exportNodeArr = []
+        let tempArr = []
+        if (curParaArr.length === 1) {
+            prevCurArr = currentNodes.slice(0, curParaArr[0] + 1)
+            paraIngArr = currentNodes.slice(curParaArr[0] + 1)
+            paraIngArr.forEach((item) => {
+                needArr.push(item.nodes[0])
+            })
+
+            tempArr.push({
+                nodes: needArr,
+                type: 'UserTask',
+                nodeCount: needArr.length,
+            })
+            exportNodeArr = prevCurArr.concat(tempArr)
+        } else if (curParaArr.length === 2) {
+            prevCurArr = currentNodes.slice(0, curParaArr[0] + 1)
+            paraIngArr = currentNodes.slice(curParaArr[0] + 1, curParaArr[1])
+            lastCurArr = currentNodes.slice(curParaArr[1])
+            paraIngArr.forEach((item)=>{
+                needArr.push(item.nodes[0])
+            })
+            tempArr.push({
+                nodes: needArr,
+                type: 'UserTask',
+                nodeCount: needArr.length,
+            })
+            exportNodeArr = prevCurArr.concat(tempArr).concat(lastCurArr)
+        }
+        let paraIsDrawArr = []
+        exportNodeArr.forEach((item, index)=>{
+            if (item.type === "ParallelGateway") {
+                paraIsDrawArr.push(index)
+            }
+            item.xStart = 50 + 150 * (index - 1)
+            item.xTo = 150 + 150 * (index - 1)
+            item.isDraw = true
+        })
+        exportNodeArr[paraIsDrawArr[1]].isDraw = false
+        console.log(exportNodeArr, "exportNodeArr")
+    </script>
+</body>
+
+</html>

@@ -9,121 +9,175 @@
     <link rel="stylesheet" href="./index.css">
     <script src="./jquery.js"></script>
     <script src="./index.js"></script>
-    <script src="./generatorArr.js"></script>
 </head>
 
 <body>
-    <canvas id="myCanvas" width="1000" height="200"></canvas>
-    <div class="init-img-container">
-        <!-- <img src="./images/User2.png" alt="" class="userImg"> -->
-    </div>
+    <canvas id="myCanvas" width="1000" height="300"></canvas>
+    <div class="init-img-container"></div>
 
     <script>
-        // 并行网关 ParallelGateway sid-3BBAB7C4-BE18-47B3-8B1F-89321BD01A4D
-        // 排他网关 ExclusiveGateway sid-22CCD18B-DFFD-498E-8E05-43CEB0193DE5
-
         const myCanvas = document.getElementById("myCanvas");
         const ctx = myCanvas.getContext("2d");
-        let arr = [{
-                id: 1,
-                nodes: [{
-                    nid: "sid-01",
-                    name: '发起节点',
-                    msg: '请快速办理'
-                }],
-                nodeCount: 1,
-                xStart: 50,
-                xTo: 150
-            },
-            {
-                id: 2,
-                nodes: [{
-                    nid: "sid-02",
-                    name: '在办节点一',
-                    msg: '我好着急啊MMP'
-                }],
-                nodeCount: 1,
-                xStart: 200,
-                xTo: 300
-            },
-            {
-                id: 3,
-                nodes: [{
-                    nid: "sid-03",
-                    name: '会签节点一',
-                    msg: '我好着急啊MMP'
-                }, {
-                    nid: "sid-04",
-                    name: '会签节点二',
-                    msg: '我好着急啊MMP'
-                }],
-                nodeCount: 2,
-                xStart: 350,
-                xTo: 450
-            },
-            {
-                id: 4,
-                nodes: [{
-                    nid: "sid-05",
-                    name: '总经理审批',
-                    msg: '我好着急啊MMP'
-                }],
-                nodeCount: 1,
-                xStart: 500,
-                xTo: 600
-            }
-        ]
-        // arr = generatorArr()
-        arr = [{
-                "nodes": [{
-                    "resourceId": "sid-FBF72118-82BB-4E76-96CD-2412174D9B5A",
-                    "name": "节点一",
-                    "msg": "请快速办理",
-                    "assignee": "王万里"
-                }],
-                "nodeCount": 1,
-                "xStart": -100,
-                "xTo": 0,
-                "type": "UserTask"
-            },
-            {
-                "nodes": [{
-                    "resourceId": "sid-24C40488-750C-4E1B-ADC2-AB0D235B84C8",
-                    "name": "节点二",
-                    "msg": "请快速办理",
-                    "assignee": "王万里"
-                }],
-                "nodeCount": 1,
-                "xStart": 50,
-                "xTo": 150,
-                "type": "UserTask"
-            },
-            {
-                "nodes": [{
-                    "resourceId": "sid-638726AE-A734-4CC8-B986-25EEFF1609C6",
-                    "name": "排他网关",
-                    "msg": "请快速办理",
-                    "assignee": ""
-                }],
-                "nodeCount": 1,
-                "xStart": 200,
-                "xTo": 300,
-                "type": "ExclusiveGateway"
-            },
-            {
-                "nodes": [{
-                    "resourceId": "sid-2ED45D0D-5095-48D5-8739-16B296FD5213",
-                    "name": "售前项目",
-                    "msg": "请快速办理",
-                    "assignee": "zhengyue"
-                }],
-                "nodeCount": 1,
-                "xStart": 350,
-                "xTo": 450,
-                "type": "UserTask"
-            }
-        ]
-        console.log(arr)
+        // let arr = [{
+        //         "nodes": [{
+        //             "type": "UserTask",
+        //             "resourceId": "sid-1A6AB312-F4CE-4188-B476-CFA492D957BD",
+        //             "name": "发起节点",
+        //             "msg": "请快速办理",
+        //             "assignee": "王万里"
+        //         }],
+        //         "nodeCount": 1,
+        //         "type": "UserTask",
+        //         "xStart": -100,
+        //         "xTo": 0,
+        //         isDraw: true
+        //     },
+        //     {
+        //         "nodes": [{
+        //             "type": "UserTask",
+        //             "resourceId": "sid-39D3500A-C994-4563-B378-23373381B460",
+        //             "name": "审批节点",
+        //             "msg": "请快速办理",
+        //             "assignee": "王万里",
+        //         }],
+        //         "nodeCount": 1,
+        //         "type": "UserTask",
+        //         "xStart": 50,
+        //         "xTo": 150,
+        //         isDraw: true
+        //     },
+        //     {
+        //         "nodes": [{
+        //             "resourceId": "sid-E50704B3-F2CD-4941-BA43-FCDD9CA45700",
+        //             "name": "并行网关",
+        //             "msg": "请快速办理",
+        //             "assignee": ""
+        //         }],
+        //         "nodeCount": 1,
+        //         "type": "ParallelGateway",
+        //         "xStart": 200,
+        //         "xTo": 300,
+        //         isDraw: true
+        //     },
+            
+        //     {
+        //         "nodes": [{
+        //                 "type": "UserTask",
+        //                 "resourceId": "sid-731E771F-00B4-4AEC-A7C9-DFCB2175D2B2",
+        //                 "name": "会签节点一",
+        //                 "msg": "请快速办理",
+        //                 "assignee": "zhengyue",
+        //             },
+        //             {
+        //                 "type": "UserTask",
+        //                 "resourceId": "sid-CBD04F9E-C0DB-49C1-9BEA-2422E322A56D",
+        //                 "name": "会签节点二",
+        //                 "msg": "请快速办理",
+        //                 "assignee": "wangwanli"
+        //             },
+        //             // {
+        //             //     "type": "UserTask",
+        //             //     "resourceId": "sid-CBD04F9E-C0DB-49C1-9BEA-2422E322A56D",
+        //             //     "name": "会签节点san",
+        //             //     "msg": "请快速办理",
+        //             //     "assignee": "wangwanli"
+        //             // }
+        //         ],
+        //         "type": "UserTask",
+        //         "nodeCount": 2,
+        //         "xStart": 350,
+        //         "xTo": 450
+        //     },
+        //     {
+        //         "nodes": [{
+        //             "resourceId": "sid-9692FF57-493D-4F8A-A714-30590124F63B",
+        //             "name": "并行网关",
+        //             "msg": "请快速办理",
+        //             "assignee": ""
+        //         }],
+        //         "nodeCount": 1,
+        //         "type": "ParallelGateway",
+        //         "xStart": 500,
+        //         "xTo": 600,
+        //         isDraw: false
+        //     },
+        //     {
+        //         "nodes": [{
+        //             "type": "UserTask",
+        //             "resourceId": "sid-8CDB7490-A866-43F0-9718-082448485F20",
+        //             "name": "上级审批",
+        //             "msg": "请快速办理",
+        //             "assignee": "王万里"
+        //         }],
+        //         "nodeCount": 1,
+        //         "type": "UserTask",
+        //         "xStart": 650,
+        //         "xTo": 750,
+        //         isDraw: true
+        //     }
+        // ]
+                let arr= [
+                    {
+                        "nodes": [
+                            {
+                                "resourceId": "sid-FBF72118-82BB-4E76-96CD-2412174D9B5A",
+                                "name": "节点一",
+                                "msg": "请快速办理",
+                                "assignee": "王万里"
+                            }
+                        ],
+                        "nodeCount": 1,
+                        "type": "UserTask",
+                        "xStart": -100,
+                        "xTo": 0,
+                        "isDraw": true
+                    },
+                    {
+                        "nodes": [
+                            {
+                                "resourceId": "sid-24C40488-750C-4E1B-ADC2-AB0D235B84C8",
+                                "name": "节点二",
+                                "msg": "请快速办理",
+                                "assignee": "王万里"
+                            }
+                        ],
+                        "nodeCount": 1,
+                        "type": "UserTask",
+                        "xStart": 50,
+                        "xTo": 150,
+                        "isDraw": true
+                    },
+                    {
+                        "nodes": [
+                            {
+                                "resourceId": "sid-638726AE-A734-4CC8-B986-25EEFF1609C6",
+                                "name": null,
+                                "msg": "请快速办理",
+                                "assignee": ""
+                            }
+                        ],
+                        "nodeCount": 1,
+                        "type": "ExclusiveGateway",
+                        "xStart": 200,
+                        "xTo": 300,
+                        "isDraw": true
+                    },
+                    {
+                        "nodes": [
+                            {
+                                "resourceId": "sid-2ED45D0D-5095-48D5-8739-16B296FD5213",
+                                "name": "售前项目",
+                                "msg": "请快速办理",
+                                "assignee": "zhengyue"
+                            }
+                        ],
+                        "nodeCount": 1,
+                        "type": "UserTask",
+                        "xStart": 350,
+                        "xTo": 450,
+                        "isDraw": true
+                    }
+                ]
         arr.forEach((item, index) => {
             if (index === 0) {
                 var htmlFragment = `
@@ -134,18 +188,73 @@
                     </div>
                 `
             } else {
-                if (item.nodeCount === 1) {
-                    drawArrow(ctx, item.xStart, 100, item.xTo, 100, 30, 15, 3, '#f36');
-                    writeText(ctx, item.xStart, 110, 0, item.nodes[0].msg)
+                if (item.nodeCount === 2) {
+                    drawArrow(ctx, item.xStart, 150, item.xTo, 50, 30, 15, 3, '#c0c0c0');
+                    drawArrow(ctx, item.xStart, 150, item.xTo, 250, 30, 15, 3, '#c0c0c0');
+                    var htmlFragment = `
+                    <div class="img-container" style="left:${item.xTo}px;top:0">
+                        <img src="./images/User2.png" alt="" class="userImg">
+                        <p>${item.nodes[0].name}</p>
+                        <p>${item.nodes[0].assignee}</p>
+                    </div>
+                    <div class="img-container" style="left:${item.xTo}px;top:200px">
+                        <img src="./images/User2.png" alt="" class="userImg">
+                        <p>${item.nodes[1].name}</p>
+                        <p>${item.nodes[1].assignee}</p>
+                    </div>
+                `
+                    drawArrow(ctx, item.xStart + 150, 50, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
+                    drawArrow(ctx, item.xStart + 150, 250, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
+                } else if (item.nodeCount === 3) {
+                    drawArrow(ctx, item.xStart, 150, item.xTo, 50, 30, 15, 3, '#c0c0c0');
+                    drawArrow(ctx, item.xStart, 150, item.xTo, 150, 30, 15, 3, '#c0c0c0');
+                    drawArrow(ctx, item.xStart, 150, item.xTo, 250, 30, 15, 3, '#c0c0c0');
+                    var htmlFragment = `
+                        <div class="img-container" style="left:${item.xTo}px;top:0">
+                            <img src="./images/User2.png" alt="" class="userImg">
+                            <p>${item.nodes[0].name}</p>
+                            <p>${item.nodes[0].assignee}</p>
+                        </div>
+                        <div class="img-container" style="left:${item.xTo}px;top:100px">
+                            <img src="./images/User2.png" alt="" class="userImg">
+                            <p>${item.nodes[1].name}</p>
+                            <p>${item.nodes[1].assignee}</p>
+                        </div>
+                        <div class="img-container" style="left:${item.xTo}px;top:200px">
+                            <img src="./images/User2.png" alt="" class="userImg">
+                            <p>${item.nodes[2].name}</p>
+                            <p>${item.nodes[2].assignee}</p>
+                        </div>
+                    `
+                    drawArrow(ctx, item.xStart + 150, 50, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
+                    drawArrow(ctx, item.xStart + 150, 150, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
+                    drawArrow(ctx, item.xStart + 150, 250, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
+                } else {
+                    if (item.isDraw) {
+                            drawArrow(ctx, item.xStart, 150, item.xTo, 150, 30, 15, 3, '#c0c0c0');
+                            writeText(ctx, item.xStart, 160, 0, item.nodes[0].msg)
+                    }
                     if (item.type === "ExclusiveGateway") {
+                        
                         var htmlFragment = `
                         <div class="img-container" style="left:${item.xTo}px">
-                            <img src="./images/User4.png" alt="" class="userImg">
+                            <img src="./images/ExclusiveGateway.png" alt="" class="userImg gateway">
                             <p>${item.nodes[0].name}</p>
                             <p>${item.nodes[0].assignee}</p>
                         </div>
                     `
+                    } else if (item.type === "ParallelGateway") {
+                        
+                        
+                        var htmlFragment = `
+                            <div class="img-container" style="left:${item.xTo}px">
+                                <img src="./images/ParallelGateway.png" alt="" class="userImg gateway">
+                                <p>${item.nodes[0].name}</p>
+                                <p>${item.nodes[0].assignee}</p>
+                            </div>
+                        `
                     } else {
+                        
                         var htmlFragment = `
                             <div class="img-container" style="left:${item.xTo}px">
                                 <img src="./images/User2.png" alt="" class="userImg">
@@ -154,26 +263,6 @@
                             </div>
                         `
                     }
-
-                } else if (item.nodeCount === 2) {
-                    drawArrow(ctx, item.xStart, 100, item.xTo, 50, 30, 15, 3, '#f36');
-                    drawArrow(ctx, item.xStart, 100, item.xTo, 150, 30, 15, 3, '#f36');
-                    // writeText(ctx, item.xStart, 50, 0.2, item.nodes[0].msg)
-                    // writeText(ctx, item.xStart, 150, -0.2, item.nodes[1].msg)
-                    var htmlFragment = `
-                    <div class="img-container" style="left:${item.xTo}px;top:0">
-                        <img src="./images/User2.png" alt="" class="userImg">
-                        <p>${item.nodes[0].name}</p>
-                        <p>${item.nodes[0].assignee}</p>
-                    </div>
-                    <div class="img-container" style="left:${item.xTo}px;top:100px">
-                        <img src="./images/User2.png" alt="" class="userImg">
-                        <p>${item.nodes[1].name}</p>
-                        <p>${item.nodes[1].assignee}</p>
-                    </div>
-                `
-                } else {
-
                 }
             }
 

@@ -44,8 +44,8 @@
                     ]
                 },
                 {
-                    "completed": false,
-                    "current": true,
+                    "completed": true,
+                    "current": false,
                     "id": "sid-24C40488-750C-4E1B-ADC2-AB0D235B84C8",
                     "name": "节点二",
                     "x": 320,
@@ -62,17 +62,6 @@
                             "value": "事件_项目管理_流程审批表"
                         }
                     ]
-                },
-                {
-                    "completed": false,
-                    "current": false,
-                    "id": "sid-638726AE-A734-4CC8-B986-25EEFF1609C6",
-                    "name": null,
-                    "x": 465,
-                    "y": 158,
-                    "width": 40,
-                    "height": 40,
-                    "type": "ExclusiveGateway"
                 },
                 {
                     "completed": false,
@@ -96,7 +85,7 @@
                 },
                 {
                     "completed": false,
-                    "current": false,
+                    "current": true,
                     "id": "sid-2ED45D0D-5095-48D5-8739-16B296FD5213",
                     "name": "售前项目",
                     "x": 550,
@@ -121,18 +110,6 @@
                     "name": null,
                     "x": 695,
                     "y": 356,
-                    "width": 28,
-                    "height": 28,
-                    "type": "EndEvent",
-                    "properties": []
-                },
-                {
-                    "completed": false,
-                    "current": false,
-                    "id": "sid-85E47E95-3467-4517-AB85-99506DE8DFA0",
-                    "name": null,
-                    "x": 695,
-                    "y": 56,
                     "width": 28,
                     "height": 28,
                     "type": "EndEvent",
@@ -171,6 +148,17 @@
                 "STime": "2021/8/3 17:36:24",
                 "State": "进行中",
                 "TaskID": "44b208e2-f43e-11eb-bfc2-00ff4611b785",
+                "TaskName": "合同项目"
+            },
+            {
+                "Comment": null,
+                "DeleteReason": "",
+                "ETime": "",
+                "GoBackReason": "",
+                "OperationMan": "zhengyue",
+                "STime": "2021/8/3 17:36:24",
+                "State": "进行中",
+                "TaskID": "44b208e2-f43e-11eb-bfc2-00ff4611b785",
                 "TaskName": "售前项目"
             }
         ]
@@ -179,6 +167,7 @@
          * 2，
          * 
          */
+        let exportNodeArr = []
         let firstNodeName = list[0].TaskName
         // 查找末尾节点
         let lastNodeName = list[list.length - 1].TaskName
@@ -186,7 +175,7 @@
         let firstNodeIndex = 0
         // 查找末尾节点索引
         let lastNodeIndex = 0
-        dataObj.elements.forEach((item, index)=>{
+        dataObj.elements.forEach((item, index) => {
             if (item.name === firstNodeName) {
                 firstNodeIndex = index
             }
@@ -196,51 +185,49 @@
         })
         // 截取所需数组
         let temArr = dataObj.elements.slice(firstNodeIndex, lastNodeIndex + 1)
-        console.log(temArr, "temArr")
-        let temNodeArr = []
+        console.log(temArr, "tempArr")
+        let exsiveArr = []
         temArr.forEach((item)=>{
             list.forEach((cItem)=>{
-                // 如果不是并行网关
                 if (item.name === cItem.TaskName || item.type === "ExclusiveGateway") {
-                    temNodeArr.push(item)
-                } else if (item.type === "ParallelGateway") {
-                    // 如果是并行网关
+                    exsiveArr.push(item)
                 }
             })
         })
-        console.log(temNodeArr, "temNodeArr")
+        console.log(exsiveArr)
+
         var result = [];
         var obj = {};
-        for (var i = 0; i < temNodeArr.length; i++) {
-            if (!obj[temNodeArr[i].id]) {
-                result.push(temNodeArr[i]);
-                obj[temNodeArr[i].id] = true;
+        for (var i = 0; i < exsiveArr.length; i++) {
+            if (!obj[exsiveArr[i].id]) {
+                result.push(exsiveArr[i]);
+                obj[exsiveArr[i].id] = true;
             }
         }
         console.log(result)
-        let currentNodes = []
-        result.forEach((item, index)=>{
+        result.forEach((item)=>{
             let assignee = ""
+            let nodeName = item.name
             if (item.properties) {
                 assignee = item.properties[0].value.indexOf("initiator") > -1 ? "王万里" : item.properties[0].value
-            } else {
-                assignee = ""
             }
-            const itemObj = {
-                resourceId: item.id,
-                name: item.name || "排他网关",
-                msg: "请快速办理",
-                assignee  
-            }
-            currentNodes.push({
-                nodes: [itemObj],
+            exportNodeArr.push({
+                nodes: [{
+                    resourceId: item.id,
+                    name: item.name,
+                    msg: "请快速办理",
+                    assignee
+                }],
                 nodeCount: 1,
-                xStart: 50 + 150 * (index-1),
-                xTo: 150 + 150 * (index-1),
                 type: item.type
             })
         })
-        console.log(currentNodes)
+        
+        exportNodeArr.forEach((item, index)=>{
+            item.xStart = 50 + 150 * (index - 1)
+            item.xTo = 150 + 150 * (index - 1)
+        })
+        console.log(exportNodeArr)
     </script>
 </body>
 

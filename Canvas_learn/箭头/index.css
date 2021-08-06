@@ -5,7 +5,7 @@ body{
 }
 .img-container{
     position: absolute;
-    top: 50px;
+    top: 100px;
     width: 50px;
     height: 100px;
     display: flex;
@@ -21,7 +21,7 @@ body{
 }
 .init-img-container{
     position: absolute;
-    top: 50px;
+    top: 100px;
     left: 0px;
     width: 50px;
     height: 100px;
@@ -34,4 +34,7 @@ body{
 .userImg{
     width: 50px;
     height: 50px;
+}
+.gateway{
+    margin-top: 13px;
 }
