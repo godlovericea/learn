@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>Vue Set</title>
+</head>
+
+<body>
+    <div id="root">
+        <div>{{name}}</div>
+        <div v-text="name"></div>
+
+        ////////////
+        <div>你好，{{name}}</div>
+        <div v-text="name">你好，</div>
+        <!-- v-text把绑定的值给替换到标题里边，并不会做拼接 -->
+        <!-- v-text：
+        1，作用：向其所在的节点中渲染文本内容
+        2，与差值语法的区别：v-text会替换节点内容，{{ name }}不会 -->
+    </div>
+    <script>
+        
+        Vue.config.productionTip = false
+        
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                name: "尚硅谷"
+            },
+        })
+    </script>
+</body>
+
+</html>

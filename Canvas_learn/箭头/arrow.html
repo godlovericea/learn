@@ -117,67 +117,119 @@
         //     }
         // ]
                 let arr= [
-                    {
-                        "nodes": [
-                            {
-                                "resourceId": "sid-FBF72118-82BB-4E76-96CD-2412174D9B5A",
-                                "name": "节点一",
-                                "msg": "请快速办理",
-                                "assignee": "王万里"
-                            }
-                        ],
-                        "nodeCount": 1,
-                        "type": "UserTask",
-                        "xStart": -100,
-                        "xTo": 0,
-                        "isDraw": true
-                    },
-                    {
-                        "nodes": [
-                            {
-                                "resourceId": "sid-24C40488-750C-4E1B-ADC2-AB0D235B84C8",
-                                "name": "节点二",
-                                "msg": "请快速办理",
-                                "assignee": "王万里"
-                            }
-                        ],
-                        "nodeCount": 1,
-                        "type": "UserTask",
-                        "xStart": 50,
-                        "xTo": 150,
-                        "isDraw": true
-                    },
-                    {
-                        "nodes": [
-                            {
-                                "resourceId": "sid-638726AE-A734-4CC8-B986-25EEFF1609C6",
-                                "name": null,
-                                "msg": "请快速办理",
-                                "assignee": ""
-                            }
-                        ],
-                        "nodeCount": 1,
-                        "type": "ExclusiveGateway",
-                        "xStart": 200,
-                        "xTo": 300,
-                        "isDraw": true
-                    },
-                    {
-                        "nodes": [
-                            {
-                                "resourceId": "sid-2ED45D0D-5095-48D5-8739-16B296FD5213",
-                                "name": "售前项目",
-                                "msg": "请快速办理",
-                                "assignee": "zhengyue"
-                            }
-                        ],
-                        "nodeCount": 1,
-                        "type": "UserTask",
-                        "xStart": 350,
-                        "xTo": 450,
-                        "isDraw": true
-                    }
-                ]
+    {
+        "nodes": [
+            {
+                "type": "UserTask",
+                "resourceId": "sid-46C7F9E2-2349-4DA2-B72D-8CB36350C57B",
+                "name": "项目立项申请",
+                "msg": "请快速办理",
+                "assignee": "wangwanli",
+                "time": "8/11 10:23:05"
+            }
+        ],
+        "nodeCount": 1,
+        "type": "UserTask",
+        "xStart": -100,
+        "xTo": 0,
+        "isDraw": true
+    },
+    {
+        "nodes": [
+            {
+                "type": "UserTask",
+                "resourceId": "sid-211B2FB8-DD59-4B41-A665-4DE5824DB05D",
+                "name": "部门领导审核",
+                "msg": "请快速办理",
+                "assignee": "wangwanli",
+                "time": "8/11 10:23:28"
+            }
+        ],
+        "nodeCount": 1,
+        "type": "UserTask",
+        "xStart": 100,
+        "xTo": 200,
+        "isDraw": true
+    },
+    {
+        "nodes": [
+            {
+                "resourceId": "sid-EB47CBAD-D3D1-4E24-9453-E77DCC086EC4",
+                "name": "并行网关",
+                "msg": "请快速办理"
+            }
+        ],
+        "nodeCount": 1,
+        "type": "ParallelGateway",
+        "xStart": 300,
+        "xTo": 400,
+        "isDraw": true
+    },
+    {
+        "nodes": [
+            {
+                "type": "UserTask",
+                "resourceId": "sid-CDCDDC6A-9E86-4B8F-B53E-B3CDBC0B3BBB",
+                "name": "财务部审批",
+                "msg": "请快速办理",
+                "assignee": "wangwanli",
+                "time": "8/11 12:50:26"
+            },
+            {
+                "type": "UserTask",
+                "resourceId": "sid-1E891955-23D7-4B03-B0F2-20E01C916F2F",
+                "name": "技术部审批",
+                "msg": "请快速办理",
+                "assignee": "dengxiaofeng",
+                "time": "8/11 12:51:15"
+            },
+            {
+                "type": "UserTask",
+                "resourceId": "sid-C82CF27E-20E6-41D9-BC15-FAF848337837",
+                "name": "工程部审批",
+                "msg": "请快速办理",
+                "assignee": "zhengyue",
+                "time": "8/11 13:00:03"
+            }
+        ],
+        "type": "UserTask",
+        "nodeCount": 3,
+        "xStart": 500,
+        "xTo": 600,
+        "isDraw": true
+    },
+    {
+        "nodes": [
+            {
+                "resourceId": "sid-ABD91174-23BB-4459-87E4-39755F345335",
+                "name": "并行网关",
+                "msg": "请快速办理"
+            }
+        ],
+        "nodeCount": 1,
+        "type": "ParallelGateway",
+        "xStart": 700,
+        "xTo": 800,
+        "isDraw": false
+    },
+    {
+        "nodes": [
+            {
+                "type": "UserTask",
+                "resourceId": "sid-C2104CBB-69A4-4B77-8751-9E5F4493A48C",
+                "name": "总经理审批",
+                "msg": "请快速办理",
+                "assignee": "wangwanli",
+                "time": ""
+            }
+        ],
+        "nodeCount": 1,
+        "type": "UserTask",
+        "xStart": 900,
+        "xTo": 1000,
+        "isDraw": true
+    }
+]
         arr.forEach((item, index) => {
             if (index === 0) {
                 var htmlFragment = `
@@ -185,6 +237,7 @@
                         <img src="./images/User2.png" alt="" class="userImg">
                         <p>${item.nodes[0].name}</p>
                         <p>${item.nodes[0].assignee}</p>
+                        <p>${item.nodes[0].time}</p>
                     </div>
                 `
             } else {
@@ -196,15 +249,20 @@
                         <img src="./images/User2.png" alt="" class="userImg">
                         <p>${item.nodes[0].name}</p>
                         <p>${item.nodes[0].assignee}</p>
+                        <p>${item.nodes[0].time}</p>
                     </div>
                     <div class="img-container" style="left:${item.xTo}px;top:200px">
                         <img src="./images/User2.png" alt="" class="userImg">
                         <p>${item.nodes[1].name}</p>
                         <p>${item.nodes[1].assignee}</p>
+                        <p>${item.nodes[1].time}</p>
                     </div>
                 `
-                    drawArrow(ctx, item.xStart + 150, 50, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
-                    drawArrow(ctx, item.xStart + 150, 250, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
+                if (arr[arr.length - 1].nodeCount === 1) {
+                    drawArrow(ctx, item.xStart + 200, 50, item.xTo + 200, 150, 30, 15, 3, '#c0c0c0');
+                    drawArrow(ctx, item.xStart + 200, 250, item.xTo + 200, 150, 30, 15, 3, '#c0c0c0');
+                }
+                    
                 } else if (item.nodeCount === 3) {
                     drawArrow(ctx, item.xStart, 150, item.xTo, 50, 30, 15, 3, '#c0c0c0');
                     drawArrow(ctx, item.xStart, 150, item.xTo, 150, 30, 15, 3, '#c0c0c0');
@@ -214,21 +272,27 @@
                             <img src="./images/User2.png" alt="" class="userImg">
                             <p>${item.nodes[0].name}</p>
                             <p>${item.nodes[0].assignee}</p>
+                            <p>${item.nodes[0].time}</p>
                         </div>
                         <div class="img-container" style="left:${item.xTo}px;top:100px">
                             <img src="./images/User2.png" alt="" class="userImg">
                             <p>${item.nodes[1].name}</p>
                             <p>${item.nodes[1].assignee}</p>
+                            <p>${item.nodes[1].time}</p>
                         </div>
                         <div class="img-container" style="left:${item.xTo}px;top:200px">
                             <img src="./images/User2.png" alt="" class="userImg">
                             <p>${item.nodes[2].name}</p>
                             <p>${item.nodes[2].assignee}</p>
+                            <p>${item.nodes[2].time}</p>
                         </div>
                     `
-                    drawArrow(ctx, item.xStart + 150, 50, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
-                    drawArrow(ctx, item.xStart + 150, 150, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
-                    drawArrow(ctx, item.xStart + 150, 250, item.xTo + 150, 150, 30, 15, 3, '#c0c0c0');
+                    if (arr[arr.length - 1].nodeCount === 1) {
+                        drawArrow(ctx, item.xStart + 200, 50, item.xTo + 200, 150, 30, 15, 3, '#c0c0c0');
+                        drawArrow(ctx, item.xStart + 200, 150, item.xTo + 200, 150, 30, 15, 3, '#c0c0c0');
+                        drawArrow(ctx, item.xStart + 200, 250, item.xTo + 200, 150, 30, 15, 3, '#c0c0c0');
+                    }
+                    
                 } else {
                     if (item.isDraw) {
                             drawArrow(ctx, item.xStart, 150, item.xTo, 150, 30, 15, 3, '#c0c0c0');
@@ -238,19 +302,13 @@
                         
                         var htmlFragment = `
                         <div class="img-container" style="left:${item.xTo}px">
-                            <img src="./images/ExclusiveGateway.png" alt="" class="userImg gateway">
-                            <p>${item.nodes[0].name}</p>
-                            <p>${item.nodes[0].assignee}</p>
+                            <img src="./images/ExclusiveGateway.png" alt="" class="gateway">
                         </div>
                     `
                     } else if (item.type === "ParallelGateway") {
-                        
-                        
                         var htmlFragment = `
                             <div class="img-container" style="left:${item.xTo}px">
-                                <img src="./images/ParallelGateway.png" alt="" class="userImg gateway">
-                                <p>${item.nodes[0].name}</p>
-                                <p>${item.nodes[0].assignee}</p>
+                                <img src="./images/ParallelGateway.png" alt="" class="gateway">
                             </div>
                         `
                     } else {
@@ -260,6 +318,7 @@
                                 <img src="./images/User2.png" alt="" class="userImg">
                                 <p>${item.nodes[0].name}</p>
                                 <p>${item.nodes[0].assignee}</p>
+                                <p>${item.nodes[0].time}</p>
                             </div>
                         `
                     }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <title>自定义指令总结</title>
+</head>
+
+<body>
+    <div id="root">
+        <h2>{{name}}</h2>
+        <h2>n的当前值是：{{n}}</h2>
+        <h2>放大10倍后的n的值是：<span v-big="n"></span></h2>
+        <button @click="n++">点我n+1</button>
+        <hr />
+        需求二：
+        <input type="text" v-fbind:value="n">
+    </div>
+    <script>
+        // 总结：
+        // 自定义指令中的this都是window
+        // 指令名字如果是多个单词，不能使用驼峰格式，要使用kebab-case，不要使用kebabCase
+        Vue.config.productionTip = false
+        // 全局自定义指令
+        Vue.directive("thrott",function(element, binding){
+
+        })
+        Vue.directive("thrott",{
+            bind(element, binding){},
+            inserted(element, binding){},
+            update(element, binding){}
+        })
+
+
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                n: 1,
+                name: '山硅谷'
+            },
+            // 局部自定义指令
+            directives: {
+                // big何时会被调用？
+                // 指定与元素成功绑定时
+                // 指令所在的模板被重新解析时也会导致big改变，比如name改变
+                big(element, binding) {
+                    // console.dir查看对象所有属性
+                    console.dir(element) //真实的DOM元素
+                    console.log(element, binding)
+
+                    element.innerText = binding.value * 10
+                },
+                // 定义一个v-fbind指令，和v-bind功能类似，但是可以让其所绑定的input元素默认获取焦点
+                // fbind(element, binding) {
+                //     element.value = binding.value
+                //     element.focus() // 代码执行不成功，因为此时还未真正的形成DOM元素，而是在内存中，Vue并未渲染元素
+                // }
+                fbind:{
+                    //以对象形式配置指令（自定义指定钩子函数）
+                    // 指定与元素成功绑定时调用bind函数
+                    bind(element, binding){
+                        console.log("bind")
+                        console.log("bind---this", this) // 此处this都是window
+                        element.value = binding.value
+                    },
+                    // 指定所在元素被插入到页面时
+                    inserted(element, binding){
+                        console.log("inserted")
+                        console.log("inserted---this", this)
+                        element.focus()
+                    },
+                    // 指令所在的模板被重新解析时
+                    // bind与update一般功能类似
+                    // 简写的时候，相当于只写了bind和update，没有inserted
+                    update(element, binding){
+                        console.log("update")
+                        console.log("update---this",this)
+                        element.value = binding.value
+                        // element.focus()
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

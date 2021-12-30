@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../vue.js"></script>
+    <script src="./day.js"></script>
+    <title>Vue Set</title>
+</head>
+
+<body>
+    <div id="root">
+        <h2>{{formatTime}}</h2>
+        <p>过滤器</p>
+        <p>默认过滤器</p>
+        <h2>{{time | timeFormatter}}</h2>
+        <p>带参数过滤器(传参)</p>
+        <h2>{{time | timeFormatter("YYYY_MM_DD") | mySlice}}</h2>
+        <!-- 过滤器的工作原理：
+        过滤器最后的返回值会覆盖掉插值内容区域，如timeFormatter会覆盖掉<h2>{{time | timeFormatter}}</h2>值，
+        mySlice会覆盖<h2>{{time | timeFormatter("YYYY_MM_DD") | mySlice}}</h2>值 -->
+        <!-- 过滤器可以接受两个参数，第一个参数，就是需要过滤的值，如time，第二个参数就是传递的参数 -->
+        <!-- 如果有多个过滤器，代码依次从左到右执行，把上一个过滤器的返回值，传递给下一个过滤器 
+        如把timeFormatter过滤器返回值，传递给mySlice，最终过滤结果就是mySlice，替换掉time值-->
+    </div>
+    <script>
+        
+        Vue.config.productionTip = false
+        // 全局过滤器
+        Vue.filter("globalSlice", function(value){
+            return value.slice(0, 2)
+        })
+
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                time: 1621561377683
+            },
+            computed:{
+                formatTime(){
+                    return dayjs(this.time).format("YYYY-MM-DD HH:mm:ss")
+                }
+            },
+            // 局部过滤器
+           // 过滤器配置
+            filters:{
+                // 过滤器的本质就是一个函数
+                timeFormatter(value, str = "YYYY-MM-DD HH:mm:ss") {
+                    return dayjs(value).format(str)
+                },
+                mySlice(value) {
+                    return value.slice(0, 4)
+                }
+            }
+        })
+        // 过滤器并没有改变原本的数据，而是产生了新数据
+    </script>
+</body>
+
+</html>

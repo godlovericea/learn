@@ -11,7 +11,8 @@
 <body>
     <script>
         const dataObj = {
-            "elements": [{
+            "elements": [
+                {
                     "completed": true,
                     "current": false,
                     "id": "startEvent1",
@@ -26,14 +27,15 @@
                 {
                     "completed": true,
                     "current": false,
-                    "id": "sid-1A6AB312-F4CE-4188-B476-CFA492D957BD",
-                    "name": "发起节点",
-                    "x": 175,
+                    "id": "sid-46C7F9E2-2349-4DA2-B72D-8CB36350C57B",
+                    "name": "项目立项申请",
+                    "x": 180,
                     "y": 138,
                     "width": 100,
                     "height": 80,
                     "type": "UserTask",
-                    "properties": [{
+                    "properties": [
+                        {
                             "name": "Assignee",
                             "value": "${initiator}"
                         },
@@ -46,14 +48,15 @@
                 {
                     "completed": true,
                     "current": false,
-                    "id": "sid-39D3500A-C994-4563-B378-23373381B460",
-                    "name": "审批节点",
-                    "x": 320,
+                    "id": "sid-211B2FB8-DD59-4B41-A665-4DE5824DB05D",
+                    "name": "部门领导审核",
+                    "x": 330,
                     "y": 138,
                     "width": 100,
                     "height": 80,
                     "type": "UserTask",
-                    "properties": [{
+                    "properties": [
+                        {
                             "name": "Assignee",
                             "value": "${initiator}"
                         },
@@ -66,9 +69,9 @@
                 {
                     "completed": true,
                     "current": false,
-                    "id": "sid-E50704B3-F2CD-4941-BA43-FCDD9CA45700",
+                    "id": "sid-EB47CBAD-D3D1-4E24-9453-E77DCC086EC4",
                     "name": null,
-                    "x": 465,
+                    "x": 555,
                     "y": 158,
                     "width": 40,
                     "height": 40,
@@ -77,34 +80,15 @@
                 {
                     "completed": false,
                     "current": true,
-                    "id": "sid-731E771F-00B4-4AEC-A7C9-DFCB2175D2B2",
-                    "name": "会签节点一",
-                    "x": 540,
-                    "y": 30,
+                    "id": "sid-CDCDDC6A-9E86-4B8F-B53E-B3CDBC0B3BBB",
+                    "name": "财务部审批",
+                    "x": 645,
+                    "y": 135,
                     "width": 100,
                     "height": 80,
                     "type": "UserTask",
-                    "properties": [{
-                            "name": "Assignee",
-                            "value": "zhengyue"
-                        },
+                    "properties": [
                         {
-                            "name": "Form key",
-                            "value": "事件_项目管理_流程审批表"
-                        }
-                    ]
-                },
-                {
-                    "completed": false,
-                    "current": true,
-                    "id": "sid-CBD04F9E-C0DB-49C1-9BEA-2422E322A56D",
-                    "name": "会签节点二",
-                    "x": 555,
-                    "y": 240,
-                    "width": 100,
-                    "height": 80,
-                    "type": "UserTask",
-                    "properties": [{
                             "name": "Assignee",
                             "value": "wangwanli"
                         },
@@ -116,10 +100,52 @@
                 },
                 {
                     "completed": false,
+                    "current": true,
+                    "id": "sid-1E891955-23D7-4B03-B0F2-20E01C916F2F",
+                    "name": "技术部审批",
+                    "x": 645,
+                    "y": 255,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [
+                        {
+                            "name": "Assignee",
+                            "value": "dengxiaofeng"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
+                    "current": true,
+                    "id": "sid-C82CF27E-20E6-41D9-BC15-FAF848337837",
+                    "name": "工程部审批",
+                    "x": 645,
+                    "y": 30,
+                    "width": 100,
+                    "height": 80,
+                    "type": "UserTask",
+                    "properties": [
+                        {
+                            "name": "Assignee",
+                            "value": "zhengyue"
+                        },
+                        {
+                            "name": "Form key",
+                            "value": "事件_项目管理_流程审批表"
+                        }
+                    ]
+                },
+                {
+                    "completed": false,
                     "current": false,
-                    "id": "sid-9692FF57-493D-4F8A-A714-30590124F63B",
+                    "id": "sid-ABD91174-23BB-4459-87E4-39755F345335",
                     "name": null,
-                    "x": 705,
+                    "x": 855,
                     "y": 158,
                     "width": 40,
                     "height": 40,
@@ -128,14 +154,15 @@
                 {
                     "completed": false,
                     "current": false,
-                    "id": "sid-8CDB7490-A866-43F0-9718-082448485F20",
-                    "name": "上级审批",
-                    "x": 790,
+                    "id": "sid-C2104CBB-69A4-4B77-8751-9E5F4493A48C",
+                    "name": "总经理审批",
+                    "x": 945,
                     "y": 138,
                     "width": 100,
                     "height": 80,
                     "type": "UserTask",
-                    "properties": [{
+                    "properties": [
+                        {
                             "name": "Assignee",
                             "value": "${initiator}"
                         },
@@ -148,9 +175,9 @@
                 {
                     "completed": false,
                     "current": false,
-                    "id": "sid-9282BCF8-7DE8-4340-BAB5-3F3CA550AC60",
+                    "id": "sid-E28221D3-D54F-4C09-B16A-9257D82F0903",
                     "name": null,
-                    "x": 935,
+                    "x": 1095,
                     "y": 164,
                     "width": 28,
                     "height": 28,
@@ -159,62 +186,74 @@
                 }
             ]
         }
-        let list = [{
-                "Comment": null,
-                "DeleteReason": "",
-                "ETime": "2021/8/4 9:30:36",
-                "GoBackReason": "",
-                "OperationMan": "wangwanli",
-                "STime": "2021/8/4 9:30:34",
-                "State": "提交",
-                "TaskID": "90a75f52-f4c3-11eb-bb9f-00ff4611b785",
-                "TaskName": "发起节点"
-            },
-            {
-                "Comment": null,
-                "DeleteReason": "",
-                "ETime": "2021/8/4 9:45:05",
-                "GoBackReason": "",
-                "OperationMan": "wangwanli",
-                "STime": "2021/8/4 9:30:36",
-                "State": "提交",
-                "TaskID": "917de939-f4c3-11eb-bb9f-00ff4611b785",
-                "TaskName": "审批节点"
-            },
-            {
-                "Comment": null,
-                "DeleteReason": "",
-                "ETime": "2021/8/4 11:17:58",
-                "GoBackReason": "",
-                "OperationMan": "zhengyue",
-                "STime": "2021/8/4 9:45:05",
-                "State": "提交",
-                "TaskID": "97b55549-f4c5-11eb-bb9f-00ff4611b785",
-                "TaskName": "会签节点一"
-            },
-            {
-                "Comment": null,
-                "DeleteReason": "",
-                "ETime": "2021/8/4 11:18:57",
-                "GoBackReason": "",
-                "OperationMan": "wangwanli",
-                "STime": "2021/8/4 9:45:05",
-                "State": "提交",
-                "TaskID": "97b5554d-f4c5-11eb-bb9f-00ff4611b785",
-                "TaskName": "会签节点二"
-            },
-            {
-                "Comment": null,
-                "DeleteReason": "",
-                "ETime": "",
-                "GoBackReason": "",
-                "OperationMan": "wangwanli",
-                "STime": "2021/8/4 11:18:57",
-                "State": "进行中",
-                "TaskID": "b4aabdf7-f4d2-11eb-bb9f-00ff4611b785",
-                "TaskName": "上级审批"
-            }
-        ]
+        let list = [
+  {
+    "Comment": null,
+    "DeleteReason": "",
+    "ETime": "2021/8/11 10:23:05",
+    "GoBackReason": "",
+    "OperationMan": "wangwanli",
+    "STime": "2021/8/11 10:23:04",
+    "State": "提交",
+    "TaskID": "0efbdbde-fa4b-11eb-8a61-00ff0230fa40",
+    "TaskName": "项目立项申请"
+  },
+  {
+    "Comment": null,
+    "DeleteReason": "",
+    "ETime": "2021/8/11 10:23:28",
+    "GoBackReason": "",
+    "OperationMan": "wangwanli",
+    "STime": "2021/8/11 10:23:05",
+    "State": "提交",
+    "TaskID": "0fa9cf25-fa4b-11eb-8a61-00ff0230fa40",
+    "TaskName": "部门领导审核"
+  },
+  {
+    "Comment": null,
+    "DeleteReason": "",
+    "ETime": "2021/8/11 12:50:26",
+    "GoBackReason": "",
+    "OperationMan": "wangwanli",
+    "STime": "2021/8/11 10:23:29",
+    "State": "提交",
+    "TaskID": "1d9a8907-fa4b-11eb-8a61-00ff0230fa40",
+    "TaskName": "财务部审批"
+  },
+  {
+    "Comment": null,
+    "DeleteReason": "",
+    "ETime": "2021/8/11 12:51:15",
+    "GoBackReason": "",
+    "OperationMan": "dengxiaofeng",
+    "STime": "2021/8/11 10:23:29",
+    "State": "提交",
+    "TaskID": "1d9ab01a-fa4b-11eb-8a61-00ff0230fa40",
+    "TaskName": "技术部审批"
+  },
+  {
+    "Comment": null,
+    "DeleteReason": "",
+    "ETime": "2021/8/11 13:00:03",
+    "GoBackReason": "",
+    "OperationMan": "zhengyue",
+    "STime": "2021/8/11 10:23:29",
+    "State": "提交",
+    "TaskID": "1d9ab01e-fa4b-11eb-8a61-00ff0230fa40",
+    "TaskName": "工程部审批"
+  },
+  {
+    "Comment": null,
+    "DeleteReason": "",
+    "ETime": "",
+    "GoBackReason": "",
+    "OperationMan": "wangwanli",
+    "STime": "2021/8/11 13:00:03",
+    "State": "进行中",
+    "TaskID": "fd2c3881-fa60-11eb-8a61-00ff0230fa40",
+    "TaskName": "总经理审批"
+  }
+]
         /**
          * 1，判断是否存在并行网关，type为ParallelGateway，截取ParallelGateway之间的节点，根据个数设置为并行节点个数
          * 2，
@@ -237,6 +276,13 @@
         })
         // 截取所需数组
         let temArr = dataObj.elements.slice(firstNodeIndex, lastNodeIndex + 1)
+        temArr.forEach((item)=>{
+            list.forEach((cItem)=>{
+                if (item.name === cItem.TaskName) {
+                    item.assignee = cItem.OperationMan
+                }
+            })
+        })
 
         // 处理会签节点
         let paraArr = []
@@ -254,9 +300,6 @@
             let nodesArr = []
             let assignee = ""
             let nodeName = item.name
-            if (item.properties) {
-                assignee = item.properties[0].value.indexOf("initiator") > -1 ? "王万里" : item.properties[0].value
-            }
             // 并行网关
             if (item.type === "ParallelGateway") {
                 nodeName = "并行网关"
@@ -264,7 +307,7 @@
                     resourceId: item.id,
                     name: nodeName,
                     msg: "请快速办理",
-                    assignee
+                    assignee: item.assignee
                 })
             } else if (item.type === "ExclusiveGateway") {
                 // 排他网关
@@ -274,8 +317,7 @@
                         resourceId: pItem.id,
                         name: pItem.name,
                         msg: "请快速办理",
-                        assignee: pItem.properties[0].value.indexOf("initiator") > -1 ? "王万里" :
-                            pItem.properties[0].value
+                        assignee: item.assignee
                     })
                 })
             } else {
@@ -285,7 +327,7 @@
                     resourceId: item.id,
                     name: nodeName,
                     msg: "请快速办理",
-                    assignee
+                    assignee: item.assignee
                 })
             }
             currentNodes.push({
@@ -324,7 +366,7 @@
             prevCurArr = currentNodes.slice(0, curParaArr[0] + 1)
             paraIngArr = currentNodes.slice(curParaArr[0] + 1, curParaArr[1])
             lastCurArr = currentNodes.slice(curParaArr[1])
-            paraIngArr.forEach((item)=>{
+            paraIngArr.forEach((item) => {
                 needArr.push(item.nodes[0])
             })
             tempArr.push({
@@ -335,15 +377,32 @@
             exportNodeArr = prevCurArr.concat(tempArr).concat(lastCurArr)
         }
         let paraIsDrawArr = []
-        exportNodeArr.forEach((item, index)=>{
+        exportNodeArr.forEach((item, index) => {
             if (item.type === "ParallelGateway") {
                 paraIsDrawArr.push(index)
             }
-            item.xStart = 50 + 150 * (index - 1)
-            item.xTo = 150 + 150 * (index - 1)
+            item.xStart = 100 + 200 * (index - 1)
+            item.xTo = 200 + 200 * (index - 1)
             item.isDraw = true
         })
-        exportNodeArr[paraIsDrawArr[1]].isDraw = false
+        console.log(paraIsDrawArr)
+        console.log(exportNodeArr)
+        if (paraIsDrawArr[1]) {
+            exportNodeArr[paraIsDrawArr[1]].isDraw = false
+        }
+        
+        
+        exportNodeArr.forEach((item)=>{
+            if (item.type === "UserTask") {
+                item.nodes.forEach(cItem=>{
+                    list.forEach((pItem)=>{
+                        if (cItem.name === pItem.TaskName) {
+                            cItem.time = pItem.ETime.slice(5)
+                        }
+                    })
+                })
+            }
+        })
         console.log(exportNodeArr, "exportNodeArr")
     </script>
 </body>

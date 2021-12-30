@@ -236,9 +236,20 @@
         })
         
         exportNodeArr.forEach((item, index)=>{
-            item.xStart = 50 + 150 * (index - 1)
-            item.xTo = 150 + 150 * (index - 1)
+            item.xStart = 100 + 200 * (index - 1)
+            item.xTo = 200 + 200 * (index - 1)
             item.isDraw = true
+        })
+        exportNodeArr.forEach((item)=>{
+            if (item.type === "UserTask") {
+                item.nodes.forEach(cItem=>{
+                    list.forEach((pItem)=>{
+                        if (cItem.name === pItem.TaskName) {
+                            cItem.time = pItem.ETime.slice(5)
+                        }
+                    })
+                })
+            }
         })
         console.log(exportNodeArr)
     </script>

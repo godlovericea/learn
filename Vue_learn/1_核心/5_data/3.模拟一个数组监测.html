@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./day.js"></script>
+    <title>Vue Set</title>
+</head>
+
+<body>
+    <div id="root">
+        <p>{{school.name}}</p>
+        <p>{{school.name}}</p>
+        <button @click="addGender">添加性别</button>
+        <p>{{school.gender}}</p>
+        <ul>
+            <li v-for="f in student.friends">
+                {{f.name}} --- {{f.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                school:{
+                    name: '尚硅谷',
+                    address: '北京',
+                },
+                student:{
+                    hobby:["抽烟","喝酒","烫头"],
+                    friends:[
+                        {name: '张三', age: 40},
+                        {name: '李四', age: 30}
+                    ]
+                }
+            },
+            methods:{
+                addGender() {
+                    Vue.set(this.school, "gender", "男")
+                    this.$set(this.school, "sex", "女")
+                }
+            }
+        })
+        // 七个操作数组的方法，会引起Vue数组的检测
+        // push pop
+        // unshift shift
+        // splice
+        // sort
+        // reverse
+    </script>
+</body>
+
+</html>

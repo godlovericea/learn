@@ -41,3 +41,21 @@ Array.prototype.csSort = function() {
     return newarr;
 }
 console.log(arr.csSort().toString());
+
+// sort排序
+var arr1 = [
+    {id:10,age:2},
+    {id:5,age:4},
+    {id:6,age:10},
+    {id:9,age:6},
+    {id:2,age:8},
+    {id:10,age:9}
+];
+arr1.sort(function(a,b){
+    if(a.id === b.id){//如果id相同，按照age的降序
+        return b.age - a.age
+    }else{
+        return a.id - b.id
+    }
+})
+console.log(arr1);

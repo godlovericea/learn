@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./day.js"></script>
+    <title>计算属性</title>
+    <style>
+        .basic{
+            width: 200px;
+            height: 50px;
+            border: 1px solid #ccc;
+        }
+        .happy{
+            background-color: red;
+        }
+        .sad{
+            background-color: gray;
+        }
+        .normal{
+            background-color: aquamarine;
+        }
+        .atguigu1{
+            background-color: aqua;
+        }
+        .atguigu2{
+            border-radius: 10px;
+        }
+        .atguigu3{
+            background-color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 计算属性：
+    1，定义：要用的属性不存在，要通过已有的属性计算得来
+    2，原理：低层借助了Object.defineproperty方法提供的getter和setter
+    3，get函数什么时候执行？
+    （1）初次读取会执行一次
+    （2）当依赖的数据发生改变的时候会被再次调用
+    4，优势：与methods实现相比，内部有缓存机制（复用计算结果），效率高，调试方便
+    5，备注：
+    （1）计算属性最终会出现在vm上，直接读取即可使用
+    （2）如果计算属性要被修改，那必须写set函数去响应修改，且set中要引起计算时依赖的数据发生改变 -->
+    <div id="root">
+        <!-- 绑定class样式---字符串写法，适用于：样式的类名不确定，需要动态指定 -->
+       <div class="basic" :class="mood" @click="changeMood"></div><br /><br />
+       <!-- 绑定class样式---数组写法，适用于：样式的类名不确定，个数也不确定 -->
+       <div class="basic" :class="classArr"></div><br /><br />
+       <!-- 绑定class样式---数组写法，适用于：样式的类名确定，个数也确定,但是动态决定用不用 -->
+       <div class="basic" :class="classObj"></div><br /><br />
+       绑定style样式---对象写法
+       <div class="basic" :style="styleObj"></div><br /><br />
+       绑定style样式---数组写法
+       <div class="basic" :style="styleArr"></div><br /><br />
+
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                name: '尚硅谷',
+                mood: 'normal',
+                classArr: ["atguigu1", "atguigu2", "atguigu3"],
+                classObj: {
+                    atguigu1: false,
+                    atguigu2: false 
+                },
+                styleObj:{
+                    fontSize: '40px',
+                    color: 'red',
+                    backgroundColor: 'orange'
+                },
+                styleArr: [
+                    {
+                        fontSize: '40px',
+                        color: '#cccccc',
+                        
+                    },
+                    {
+                        backgroundColor: 'blue'
+                    }
+                ]
+            },
+            methods:{
+                changeMood() {
+                    this.mood = "sad"
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

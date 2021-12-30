@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./day.js"></script>
+    <title>Vue Set</title>
+</head>
+
+<body>
+    <div id="root">
+        <p>{{school.name}}</p>
+        <p>{{school.name}}</p>
+        <button @click="addGender">添加性别</button>
+        <p>{{school.gender}}</p>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        var vm = new Vue({
+            el: '#root',
+            data: {
+                school:{
+                    name: '尚硅谷',
+                    address: '北京',
+                }
+            },
+            methods:{
+                addGender() {
+                    Vue.set(this.school, "gender", "男")
+                }
+            }
+        })
+        // Vue.set 向响应式对象中添加一个property，并确保这个新的property同样是响应式的，
+        // 且触发视图更新，它必须用于向响应式对象上添加新property，因为Vue无法探测普通的新增property
+        // 注意： 对象不能是Vue实例（Vue自身），或者Vue实例的根数据对象（Vue.data || this.data）
+
+        // 以下错误代码：
+        // Vue.set(vm.data, "sex", "男")
+    </script>
+</body>
+
+</html>
